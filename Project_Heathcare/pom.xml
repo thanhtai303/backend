@@ -11,47 +11,24 @@
 			spring-boot-starter-parent
 		</artifactId>
 		<version>
-			3.2.1
+			2.7.0
 		</version>
-		<relativePath />
 	</parent>
 	<groupId>
-		com.healthmonitoring
+		com.healthcare
 	</groupId>
 	<artifactId>
-		health-monitoring-system
+		healthcare-system
 	</artifactId>
 	<version>
-		0.0.1-SNAPSHOT
+		1.0.0
 	</version>
-	<name>
-		health-monitoring-system
-	</name>
-	<description>
-		Health Monitoring System using Builder Pattern
-	</description>
 	<properties>
 		<java.version>
-			17
+			11
 		</java.version>
-		<springdoc.version>
-			2.3.0
-		</springdoc.version>
-		<mapstruct.version>
-			1.5.5.Final
-		</mapstruct.version>
-		<lombok.version>
-			1.18.30
-		</lombok.version>
-		<mysql.version>
-			8.2.0
-		</mysql.version>
-		<jjwt.version>
-			0.11.5
-		</jjwt.version>
 	</properties>
 	<dependencies>
-		<!-- Spring Boot Starters -->
 		<dependency>
 			<groupId>
 				org.springframework.boot
@@ -70,11 +47,25 @@
 		</dependency>
 		<dependency>
 			<groupId>
-				org.springframework.boot
+				mysql
 			</groupId>
 			<artifactId>
-				spring-boot-starter-validation
+				mysql-connector-java
 			</artifactId>
+			<version>
+				8.0.27
+			</version>
+		</dependency>
+		<dependency>
+			<groupId>
+				org.projectlombok
+			</groupId>
+			<artifactId>
+				lombok
+			</artifactId>
+			<optional>
+				true
+			</optional>
 		</dependency>
 		<dependency>
 			<groupId>
@@ -84,150 +75,42 @@
 				spring-boot-starter-security
 			</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>
-				org.springframework.boot
-			</groupId>
-			<artifactId>
-				spring-boot-starter-actuator
-			</artifactId>
-		</dependency>
-		<!-- Database -->
-		<dependency>
-			<groupId>
-				com.mysql
-			</groupId>
-			<artifactId>
-				mysql-connector-j
-			</artifactId>
-			<version>
-				${mysql.version}
-			</version>
-		</dependency>
-		<!-- API Documentation -->
+		<!-- Swagger UI -->
 		<dependency>
 			<groupId>
 				org.springdoc
 			</groupId>
 			<artifactId>
-				springdoc-openapi-starter-webmvc-ui
+				springdoc-openapi-ui
 			</artifactId>
 			<version>
-				${springdoc.version}
-			</version>
-		</dependency>
-		<!-- Security JWT -->
-		<dependency>
-			<groupId>
-				io.jsonwebtoken
-			</groupId>
-			<artifactId>
-				jjwt-api
-			</artifactId>
-			<version>
-				${jjwt.version}
+				1.6.9
 			</version>
 		</dependency>
 		<dependency>
 			<groupId>
-				io.jsonwebtoken
+				org.springdoc
 			</groupId>
 			<artifactId>
-				jjwt-impl
+				springdoc-openapi-security
 			</artifactId>
 			<version>
-				${jjwt.version}
+				1.6.9
 			</version>
-			<scope>
-				runtime
-			</scope>
 		</dependency>
+		<!-- Servlet API -->
 		<dependency>
 			<groupId>
-				io.jsonwebtoken
+				javax.servlet
 			</groupId>
 			<artifactId>
-				jjwt-jackson
+				javax.servlet-api
 			</artifactId>
 			<version>
-				${jjwt.version}
+				4.0.1
 			</version>
 			<scope>
-				runtime
-			</scope>
-		</dependency>
-		<!-- Development Tools -->
-		<dependency>
-			<groupId>
-				org.projectlombok
-			</groupId>
-			<artifactId>
-				lombok
-			</artifactId>
-			<version>
-				${lombok.version}
-			</version>
-			<optional>
-				true
-			</optional>
-		</dependency>
-		<dependency>
-			<groupId>
-				org.mapstruct
-			</groupId>
-			<artifactId>
-				mapstruct
-			</artifactId>
-			<version>
-				${mapstruct.version}
-			</version>
-		</dependency>
-		<dependency>
-			<groupId>
-				org.springframework.boot
-			</groupId>
-			<artifactId>
-				spring-boot-devtools
-			</artifactId>
-			<scope>
-				runtime
-			</scope>
-			<optional>
-				true
-			</optional>
-		</dependency>
-		<!-- Testing -->
-		<dependency>
-			<groupId>
-				org.springframework.boot
-			</groupId>
-			<artifactId>
-				spring-boot-starter-test
-			</artifactId>
-			<scope>
-				test
-			</scope>
-		</dependency>
-		<dependency>
-			<groupId>
-				org.springframework.security
-			</groupId>
-			<artifactId>
-				spring-security-test
-			</artifactId>
-			<scope>
-				test
-			</scope>
-		</dependency>
-		<dependency>
-			<groupId>
-				com.h2database
-			</groupId>
-			<artifactId>
-				h2
-			</artifactId>
-			<scope>
-				test
+				provided
 			</scope>
 		</dependency>
 	</dependencies>
@@ -252,101 +135,6 @@
 						</exclude>
 					</excludes>
 				</configuration>
-			</plugin>
-			<!-- MapStruct and Lombok integration -->
-			<plugin>
-				<groupId>
-					org.apache.maven.plugins
-				</groupId>
-				<artifactId>
-					maven-compiler-plugin
-				</artifactId>
-				<configuration>
-					<source>
-						${java.version}
-					</source>
-					<target>
-						${java.version}
-					</target>
-					<annotationProcessorPaths>
-						<path>
-							<groupId>
-								org.projectlombok
-							</groupId>
-							<artifactId>
-								lombok
-							</artifactId>
-							<version>
-								${lombok.version}
-							</version>
-						</path>
-						<path>
-							<groupId>
-								org.mapstruct
-							</groupId>
-							<artifactId>
-								mapstruct-processor
-							</artifactId>
-							<version>
-								${mapstruct.version}
-							</version>
-						</path>
-						<path>
-							<groupId>
-								org.projectlombok
-							</groupId>
-							<artifactId>
-								lombok-mapstruct-binding
-							</artifactId>
-							<version>
-								0.2.0
-							</version>
-						</path>
-					</annotationProcessorPaths>
-				</configuration>
-			</plugin>
-			<!-- Testing -->
-			<plugin>
-				<groupId>
-					org.apache.maven.plugins
-				</groupId>
-				<artifactId>
-					maven-surefire-plugin
-				</artifactId>
-			</plugin>
-			<!-- Code Coverage -->
-			<plugin>
-				<groupId>
-					org.jacoco
-				</groupId>
-				<artifactId>
-					jacoco-maven-plugin
-				</artifactId>
-				<version>
-					0.8.11
-				</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>
-								prepare-agent
-							</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>
-							report
-						</id>
-						<phase>
-							test
-						</phase>
-						<goals>
-							<goal>
-								report
-							</goal>
-						</goals>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 	</build>

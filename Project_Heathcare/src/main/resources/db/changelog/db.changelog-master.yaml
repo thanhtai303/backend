@@ -1,0 +1,352 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: your_name
+      preConditions:
+        - not:
+            - tableExists:
+                tableName: users
+      changes:
+        - createTable:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: email
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: password
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: role
+                  type: VARCHAR(20)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+                  constraints:
+                    defaultValueComputed: CURRENT_TIMESTAMP
+
+  - changeSet:
+      id: 2
+      author: your_name
+      preConditions:
+        - tableExists:
+            tableName: users
+      changes:
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: name
+                  value: "John Doe"
+              - column:
+                  name: email
+                  value: "john.doe@example.com"
+              - column:
+                  name: password
+                  value: "password123"
+              - column:
+                  name: role
+                  value: "patient"
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: name
+                  value: "Jane Smith"
+              - column:
+                  name: email
+                  value: "jane.smith@example.com"
+              - column:
+                  name: password
+                  value: "password123"
+              - column:
+                  name: role
+                  value: "doctor"
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: name
+                  value: "Alice Johnson"
+              - column:
+                  name: email
+                  value: "alice.johnson@example.com"
+              - column:
+                  name: password
+                  value: "password123"
+              - column:
+                  name: role
+                  value: "patient"
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: name
+                  value: "Bob Brown"
+              - column:
+                  name: email
+                  value: "bob.brown@example.com"
+              - column:
+                  name: password
+                  value: "password123"
+              - column:
+                  name: role
+                  value: "doctor"
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: name
+                  value: "Charlie Davis"
+              - column:
+                  name: email
+                  value: "charlie.davis@example.com"
+              - column:
+                  name: password
+                  value: "password123"
+              - column:
+                  name: role
+                  value: "patient"
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: name
+                  value: "Diana Prince"
+              - column:
+                  name: email
+                  value: "diana.prince@example.com"
+              - column:
+                  name: password
+                  value: "password123"
+              - column:
+                  name: role
+                  value: "doctor"
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: name
+                  value: "Ethan Hunt"
+              - column:
+                  name: email
+                  value: "ethan.hunt@example.com"
+              - column:
+                  name: password
+                  value: "password123"
+              - column:
+                  name: role
+                  value: "patient"
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: name
+                  value: "Fiona Apple"
+              - column:
+                  name: email
+                  value: "fiona.apple@example.com"
+              - column:
+                  name: password
+                  value: "password123"
+              - column:
+                  name: role
+                  value: "doctor"
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: name
+                  value: "George Clooney"
+              - column:
+                  name: email
+                  value: "george.clooney@example.com"
+              - column:
+                  name: password
+                  value: "password123"
+              - column:
+                  name: role
+                  value: "patient"
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: name
+                  value: "Hannah Montana"
+              - column:
+                  name: email
+                  value: "hannah.montana@example.com"
+              - column:
+                  name: password
+                  value: "password123"
+              - column:
+                  name: role
+                  value: "doctor"
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: name
+                  value: "Ian Malcolm"
+              - column:
+                  name: email
+                  value: "ian.malcolm@example.com"
+              - column:
+                  name: password
+                  value: "password123"
+              - column:
+                  name: role
+                  value: "patient"
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: name
+                  value: "Julia Roberts"
+              - column:
+                  name: email
+                  value: "julia.roberts@example.com"
+              - column:
+                  name: password
+                  value: "password123"
+              - column:
+                  name: role
+                  value: "doctor"
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: name
+                  value: "Kevin Bacon"
+              - column:
+                  name: email
+                  value: "kevin.bacon@example.com"
+              - column:
+                  name: password
+                  value: "password123"
+              - column:
+                  name: role
+                  value: "patient"
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: name
+                  value: "Laura Croft"
+              - column:
+                  name: email
+                  value: "laura.croft@example.com"
+              - column:
+                  name: password
+                  value: "password123"
+              - column:
+                  name: role
+                  value: "doctor"
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: name
+                  value: "Mike Wazowski"
+              - column:
+                  name: email
+                  value: "mike.wazowski@example.com"
+              - column:
+                  name: password
+                  value: "password123"
+              - column:
+                  name: role
+                  value: "patient"
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: name
+                  value: "Nina Simone"
+              - column:
+                  name: email
+                  value: "nina.simone@example.com"
+              - column:
+                  name: password
+                  value: "password123"
+              - column:
+                  name: role
+                  value: "doctor"
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: name
+                  value: "Oscar Wilde"
+              - column:
+                  name: email
+                  value: "oscar.wilde@example.com"
+              - column:
+                  name: password
+                  value: "password123"
+              - column:
+                  name: role
+                  value: "patient"
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: name
+                  value: "Paula Patton"
+              - column:
+                  name: email
+                  value: "paula.patton@example.com"
+              - column:
+                  name: password
+                  value: "password123"
+              - column:
+                  name: role
+                  value: "doctor"
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: name
+                  value: "Quincy Jones"
+              - column:
+                  name: email
+                  value: "quincy.jones@example.com"
+              - column:
+                  name: password
+                  value: "password123"
+              - column:
+                  name: role
+                  value: "patient"
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: name
+                  value: "Rachel Green"
+              - column:
+                  name: email
+                  value: "rachel.green@example.com"
+              - column:
+                  name: password
+                  value: "password123"
+              - column:
+                  name: role
+                  value: "doctor"

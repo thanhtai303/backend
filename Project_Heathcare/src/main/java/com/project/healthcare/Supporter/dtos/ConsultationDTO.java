@@ -9,8 +9,10 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ErrorResponse {
-  private int status;
-  private String message;
-  private LocalDateTime timestamp;
+public class ConsultationDTO {
+  private Long id;
+  private Long patientId;
+  private Long doctorId;
+  private String status;
+  private LocalDateTime createdAt;
 }

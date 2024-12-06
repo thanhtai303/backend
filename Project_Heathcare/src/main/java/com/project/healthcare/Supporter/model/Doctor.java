@@ -1,19 +1,36 @@
 package com.project.healthcare.Supporter.model;
 
-import java.util.List;
+import java.time.LocalDateTime;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "doctors")
 @Data
-@EqualsAndHashCode(callSuper = true)
-public class Doctor extends User {
-  @OneToMany(mappedBy = "doctor")
-  private List<Patient> patients;
-  private String listOfPatients;
+@NoArgsConstructor
+@AllArgsConstructor
+public class Doctor {
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
+
+  @OneToOne
+  @JoinColumn(name = "user_id")
+  private User user;
+
+  private String specialization;
+
+  @Column(name = "created_at")
+  private LocalDateTime createdAt;
 }
